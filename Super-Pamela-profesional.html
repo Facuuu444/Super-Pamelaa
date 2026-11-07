@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es-UY">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Super Pamela en Ciudad del Plata. Consultá productos, ofertas y enviá tu pedido por WhatsApp.">
+<title>Super Pamela — Todo lo que necesitás, en un solo lugar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+:root{--navy:#102b4e;--navy-2:#173b65;--red:#d92732;--red-dark:#b51e28;--green:#16834a;--ink:#182536;--muted:#657386;--line:#e3e8ef;--surface:#fff;--bg:#f5f7fa;--soft:#edf3f8;--radius:16px;--shadow:0 8px 28px rgba(16,43,78,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:125px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}h1,h2,h3,p{margin-top:0}h1,h2,h3{line-height:1.15;letter-spacing:-.025em}h1{font-size:clamp(2.3rem,5vw,4rem);font-weight:800}h2{font-size:clamp(1.65rem,3vw,2.35rem);color:var(--navy);font-weight:800}h3{font-size:1.12rem;color:var(--navy)}img{max-width:100%}button,input,select,textarea{font:inherit}a{color:inherit}button{cursor:pointer}:focus-visible{outline:3px solid #f5b942;outline-offset:3px}.wrap{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+.site-header{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 3px 16px rgba(16,43,78,.05)}.top{min-height:76px;display:flex;align-items:center;gap:22px}.brand-link{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:max-content}.brand-mark{width:42px;height:42px;display:grid;place-items:center;background:var(--red);color:#fff;border-radius:12px;font-size:1.35rem;font-weight:900}.brand-name{font-size:1.12rem;font-weight:850;line-height:1.05;color:var(--navy)}.brand-name small{display:block;margin-top:4px;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700}.search{flex:1;max-width:560px;margin-left:auto}.search input{width:100%;padding:12px 16px 12px 42px;border:1px solid var(--line);border-radius:10px;background:#f8fafc;color:var(--ink);outline-offset:1px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23657386' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:14px center}.cart-btn{border:0;border-radius:10px;padding:12px 16px;background:var(--navy);color:#fff;font-weight:750;white-space:nowrap}.cart-btn .n{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:7px;padding:0 5px;border-radius:20px;background:#fff;color:var(--navy);font-size:.8rem}.cart-btn.bump{animation:bump .3s}@keyframes bump{50%{transform:scale(1.06)}}nav{background:var(--navy)}nav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}nav a{display:block;padding:11px 13px;color:#eaf0f7;text-decoration:none;font-size:.9rem;font-weight:650;white-space:nowrap;border-bottom:2px solid transparent}nav a:hover,nav a:focus-visible{color:#fff;border-color:#f4a6aa}
+.hero{background:linear-gradient(115deg,#102b4e 0%,#19466e 100%);color:#fff}.hero .wrap{min-height:365px;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:48px;padding-block:56px}.eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:15px;color:#c9d9e8;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.eyebrow:before{content:"";width:24px;height:2px;background:#ef737a}.hero h1{max-width:680px;margin-bottom:16px;color:#fff}.hero p{max-width:570px;margin-bottom:24px;color:#dbe6f1;font-size:1.08rem}.cta{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:11px 19px;border:0;border-radius:9px;text-decoration:none;font-weight:800;transition:transform .16s,background .16s}.btn:hover{transform:translateY(-1px)}.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red-dark)}.btn-white{background:#fff;color:var(--navy)}.hero-panel{justify-self:end;width:min(100%,340px);padding:25px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:rgba(255,255,255,.08);backdrop-filter:blur(6px)}.hero-panel strong{display:block;margin-bottom:15px;font-size:1.05rem}.hero-benefit{display:flex;gap:11px;align-items:center;padding:12px 0;border-top:1px solid rgba(255,255,255,.14);color:#e3edf6;font-size:.92rem}.hero-benefit span{font-size:1.2rem}
+.shortcuts{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:22px}.shortcuts a{display:flex;align-items:center;gap:10px;min-height:64px;padding:12px;background:#fff;border:1px solid var(--line);border-radius:12px;text-decoration:none;font-size:.88rem;font-weight:750;color:var(--navy);transition:border-color .15s,transform .15s}.shortcuts a:hover{border-color:#b8c9da;transform:translateY(-2px)}.shortcuts b{font-size:1.35rem}
+section{padding:64px 0 8px}.sec-h{display:flex;justify-content:space-between;align-items:end;gap:14px;flex-wrap:wrap;margin-bottom:22px}.sec-h p{margin:6px 0 0;color:var(--muted)}.offers{margin-top:56px;padding:54px 0;background:#edf2f7}.offers .sec-h h2{margin-bottom:0}.ogrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}.ocard{position:relative;display:flex;flex-direction:column;gap:8px;padding:20px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}.ocard .tag{position:absolute;top:16px;right:16px;padding:4px 9px;border-radius:6px;background:#fff0f1;color:var(--red);font-size:.76rem;font-weight:850}.ocard .em{font-size:2rem}.ocard h3{margin:0}.ocard p{flex:1;margin:0;color:var(--muted);font-size:.9rem}.price{color:var(--navy);font-size:1.35rem;font-weight:850;letter-spacing:-.02em}.price s{margin-left:7px;color:#8994a3;font-size:.9rem;font-weight:500}.demo-note{margin-bottom:18px;padding:12px 15px;border:1px solid #ead9a6;border-radius:10px;background:#fff9e9;color:#765c1d;font-size:.9rem}.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.tools select{padding:10px 14px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink)}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}.chip{padding:8px 13px;border:1px solid #cbd5e1;border-radius:30px;background:#fff;color:var(--navy);font-size:.85rem;font-weight:700}.chip[aria-pressed=true]{border-color:var(--navy);background:var(--navy);color:#fff}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:16px}.card{display:flex;flex-direction:column;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:13px;transition:transform .16s,box-shadow .16s}.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.ph{position:relative;display:grid;place-items:center;height:145px;background:#eef3f8;font-size:3.2rem}.ph img{width:100%;height:100%;object-fit:cover}.ph small{position:absolute;top:10px;left:10px;padding:4px 9px;border-radius:20px;background:#fff;color:var(--navy);font-size:.7rem;font-weight:800}.card .b{display:flex;flex:1;flex-direction:column;gap:7px;padding:15px}.card h3{margin:0;font-size:1rem}.card p{flex:1;margin:0;color:var(--muted);font-size:.86rem}.card .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}.card .price{font-size:1.2rem}.card .price small{color:var(--muted);font-size:.75rem;font-weight:600}.add{padding:9px 13px;border:0;border-radius:8px;background:var(--red);color:#fff;font-size:.84rem;font-weight:800}.add:hover{background:var(--red-dark)}.empty{grid-column:1/-1;padding:36px 0;text-align:center;color:var(--muted)}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.info>div{min-width:0;padding:20px;background:#fff;border:1px solid var(--line);border-radius:13px}.info h3{margin-bottom:7px}.info p{margin:0;color:var(--muted);overflow-wrap:anywhere}.info a{color:var(--navy);font-weight:700;text-decoration-thickness:1px;text-underline-offset:3px}.map{grid-column:1/-1;padding:12px!important}.map h3{padding:6px 6px 12px}.map iframe{display:block;width:100%;height:320px;border:0;border-radius:9px}footer{margin-top:64px;padding:30px 20px;background:#10243d;color:#cbd6e2;text-align:center;font-size:.88rem}footer .footer-brand{margin-bottom:6px;color:#fff;font-size:1.1rem;font-weight:850}
+.ov{position:fixed;inset:0;z-index:40;background:rgba(12,27,45,.52);opacity:0;pointer-events:none;transition:opacity .2s}.ov.on{opacity:1;pointer-events:auto}aside{position:fixed;top:0;right:0;z-index:50;display:flex;flex-direction:column;width:min(440px,100%);height:100%;background:#fff;box-shadow:-10px 0 35px rgba(0,0,0,.12);transform:translateX(100%);transition:transform .25s}aside.on{transform:none}aside header{position:static;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;background:var(--navy);color:#fff}aside header h2{margin:0;color:#fff;font-size:1.35rem}.x{border:0;background:none;color:#fff;font-size:1.8rem;line-height:1}#items{flex:1;overflow:auto;padding:12px 20px}.it{display:grid;grid-template-columns:1fr auto;gap:5px 10px;padding:14px 0;border-bottom:1px solid var(--line)}.it b{font-weight:800}.it .sub{color:var(--muted);font-size:.85rem}.qty{display:flex;grid-column:1/2;align-items:center;gap:5px}.qty button{width:31px;height:31px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;color:var(--navy);font-weight:800}.qty input{width:66px;padding:5px;border:1px solid var(--line);border-radius:7px;text-align:center}.del{align-self:end;border:0;background:none;color:var(--red);font-size:.85rem;font-weight:750}.foot{display:grid;gap:11px;padding:16px 20px;border-top:1px solid var(--line);background:#f8fafc}.foot textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;resize:vertical}.tot{display:flex;justify-content:space-between;color:var(--navy);font-size:1.25rem;font-weight:850}.btn-wa{width:100%;background:var(--green);color:#fff}.btn-wa:hover{background:#116b3b}.btn-wa[disabled]{background:#aab5c2;cursor:not-allowed}.link{border:0;background:none;color:var(--muted);text-decoration:underline}
+@media(max-width:900px){.shortcuts{grid-template-columns:repeat(3,1fr)}.info{grid-template-columns:repeat(2,1fr)}.hero .wrap{gap:25px}.hero-panel{width:100%}}
+@media(max-width:640px){.wrap{width:min(100% - 28px,1160px)}.top{min-height:0;flex-wrap:wrap;gap:12px;padding-block:12px}.brand-link{flex:1}.search{order:3;flex-basis:100%;max-width:none}.cart-btn{padding:10px 12px}.cart-btn .t{display:none}nav .wrap{width:100%;padding-inline:14px}.hero .wrap{grid-template-columns:1fr;min-height:0;padding-block:43px}.hero-panel{justify-self:stretch;max-width:none;padding:16px 18px}.hero-benefit{padding:9px 0}.shortcuts{grid-template-columns:repeat(2,1fr);gap:9px}.shortcuts a{min-height:56px;padding:9px;font-size:.82rem}section{padding-top:48px}.offers{margin-top:42px;padding:42px 0}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ph{height:115px;font-size:2.6rem}.card .b{padding:11px}.card .row{align-items:flex-start;flex-direction:column}.card .add{width:100%}.info{grid-template-columns:1fr}.map{grid-column:auto}.map iframe{height:280px}footer{margin-top:45px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Refinamiento visual */
+.announcement{background:#0b1e34;color:#d9e3ee;font-size:.76rem;font-weight:650;letter-spacing:.025em}
+.announcement .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:7px}
+.announcement span:first-child{color:#fff;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+.site-header{box-shadow:0 5px 22px rgba(16,43,78,.055)}
+.brand-mark{border-radius:11px;background:linear-gradient(145deg,#e43a43,#bf202b);box-shadow:0 5px 12px rgba(217,39,50,.18)}
+.brand-name{letter-spacing:-.035em}
+nav{background:#102b4e}
+nav a{padding-block:12px;color:#e2eaf3}
+.hero{position:relative;isolation:isolate;background:linear-gradient(112deg,#102b4e 0%,#173e64 65%,#1d4a70 100%)}
+.hero:after{content:"";position:absolute;z-index:-1;width:520px;height:520px;right:-145px;top:-215px;border:1px solid rgba(255,255,255,.09);border-radius:50%;box-shadow:0 0 0 42px rgba(255,255,255,.025),0 0 0 90px rgba(255,255,255,.018)}
+.hero .wrap{min-height:390px}
+.eyebrow{font-size:.72rem;letter-spacing:.15em}
+.hero h1{max-width:620px;letter-spacing:-.045em}
+.hero p{font-size:1.04rem;line-height:1.75}
+.hero-panel{border-radius:14px;background:rgba(255,255,255,.075);box-shadow:0 18px 45px rgba(0,0,0,.09)}
+.hero-benefit{font-size:.9rem}
+.hero-benefit span{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.12);color:#fff;font-size:.72rem;font-weight:850}
+.section-kicker{display:block;margin-bottom:8px;color:#8a96a6;font-size:.68rem;font-weight:850;letter-spacing:.16em}
+.section-kicker-light{color:#f8c9cc}
+.sec-h{margin-bottom:25px}
+.sec-h h2{letter-spacing:-.04em}
+.shortcuts a{box-shadow:0 3px 12px rgba(16,43,78,.035)}
+.offers{background:#eef2f6;border-top:1px solid #e5eaf0;border-bottom:1px solid #e5eaf0}
+.ocard{box-shadow:0 3px 14px rgba(16,43,78,.045);transition:transform .18s,box-shadow .18s}
+.ocard:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(16,43,78,.09)}
+.demo-note{border-color:#ead9a6;background:#fffaf0}
+.chip{transition:background .15s,border-color .15s,color .15s}
+.card{box-shadow:0 2px 10px rgba(16,43,78,.025)}
+.card:hover{box-shadow:0 12px 28px rgba(16,43,78,.09)}
+.add{transition:background .15s,transform .15s}
+.add:active{transform:scale(.98)}
+.info>div{box-shadow:0 3px 12px rgba(16,43,78,.025)}
+.info>div h3{font-size:1rem}
+.map{background:#fff!important}
+footer{background:#0b1e34}
+.footer-brand{letter-spacing:-.025em}
+@media(max-width:640px){
+  .announcement .wrap{justify-content:center;text-align:center}
+  .announcement span:first-child{display:none}
+  .hero .wrap{padding-block:39px}
+  .hero:after{right:-310px;top:-140px}
+  .sec-h{margin-bottom:18px}
+}
+
+</style>
+</head>
+<body>
+
+<div class="announcement"><div class="wrap"><span>Super Pamela</span><span>Tu supermercado en Ciudad del Plata</span></div></div>
+<header class="site-header">
+  <div class="wrap top">
+    <a class="brand-link" href="#inicio" aria-label="Super Pamela, inicio"><span class="brand-mark" aria-hidden="true">P</span><span class="brand-name">Super Pamela<small>Supermercado</small></span></a>
+    <div class="search"><input id="q" type="search" placeholder="Buscar productos: leche, asado, pan…" aria-label="Buscar productos"></div>
+    <button class="cart-btn" id="openCart" aria-label="Abrir carrito">🛒 <span class="t">Mi carrito</span><span class="n" id="count">0</span></button>
+  </div>
+  <nav aria-label="Secciones"><div class="wrap">
+    <a href="#ofertas">Ofertas</a><a href="#catalogo" data-cat="Carnicería">Carnicería</a><a href="#catalogo" data-cat="Fiambrería">Fiambrería</a><a href="#catalogo" data-cat="Frutas y verduras">Frutas y verduras</a><a href="#catalogo" data-cat="Almacén">Almacén</a><a href="#catalogo" data-cat="Lácteos">Lácteos</a><a href="#catalogo" data-cat="Panadería">Panadería</a><a href="#catalogo" data-cat="Bebidas">Bebidas</a><a href="#catalogo" data-cat="Congelados">Congelados</a><a href="#catalogo" data-cat="Limpieza">Limpieza</a><a href="#catalogo" data-cat="Higiene personal">Higiene</a><a href="#info">Local</a>
+  </div></nav>
+</header>
+
+<main id="inicio">
+<div class="hero"><div class="wrap">
+  <div>
+    <div class="eyebrow">Supermercado · Ciudad del Plata</div>
+    <h1>Tu compra diaria, más fácil.</h1>
+    <p>Encontrá tus productos, armá tu pedido y envialo directamente a Super Pamela por WhatsApp.</p>
+    <div class="cta"><a class="btn btn-red" href="#catalogo">Ver productos</a><a class="btn btn-white" href="#info">Conocer el local</a></div>
+  </div>
+  <div class="hero-panel">
+    <strong>Hacé tu pedido en tres pasos</strong>
+    <div class="hero-benefit"><span>01</span> Explorá el catálogo y las ofertas</div>
+    <div class="hero-benefit"><span>02</span> Agregá productos a tu carrito</div>
+    <div class="hero-benefit"><span>03</span> Enviá tu pedido por WhatsApp</div>
+  </div>
+</div></div>
+
+<div class="wrap"><div class="shortcuts" id="shortcuts"></div></div>
+
+<div class="offers" id="ofertas"><div class="wrap">
+  <div class="sec-h"><div><span class="section-kicker section-kicker-light">PROMOCIONES</span><h2>Ofertas destacadas</h2><p>Promociones y combos para tu compra.</p></div></div>
+  <div class="ogrid" id="ogrid"></div>
+</div></div>
+
+<section id="catalogo"><div class="wrap">
+  <div class="sec-h"><div><span class="section-kicker">CATÁLOGO</span><h2>Nuestros productos</h2><p id="res"></p></div></div>
+  <div class="demo-note"><b>Productos y precios de ejemplo.</b> Se reemplazarán por los datos reales del supermercado.</div>
+  <div class="tools">
+    <select id="sort" aria-label="Ordenar"><option value="">Ordenar por…</option><option value="asc">Precio: menor a mayor</option><option value="desc">Precio: mayor a menor</option><option value="az">Nombre A–Z</option></select>
+  </div>
+  <div class="chips" id="chips" role="group" aria-label="Categorías"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="info"><div class="wrap">
+  <div class="sec-h"><div><span class="section-kicker">VISITANOS</span><h2>Encontranos</h2><p>Consultá nuestros datos y cómo llegar al local.</p></div></div>
+  <div class="info" id="infoBox"></div>
+</div></section>
+</main>
+
+<footer><div class="footer-brand">Super Pamela</div>© <span id="yr"></span> Super Pamela Supermercado. Todos los derechos reservados.</footer>
+
+<div class="ov" id="ov"></div>
+<aside id="drawer" aria-label="Carrito de compras" aria-hidden="true">
+  <header><h2>Mi carrito</h2><button class="x" id="closeCart" aria-label="Cerrar carrito">×</button></header>
+  <div id="items"></div>
+  <div class="foot">
+    <textarea id="obs" rows="2" placeholder="Observaciones (ej: asado sin hueso, retiro a las 18 h)" aria-label="Observaciones"></textarea>
+    <div class="tot"><span>Total estimado</span><span id="total">$0</span></div>
+    <button class="btn btn-wa" id="send">Enviar pedido por WhatsApp</button>
+    <button class="link" id="clear">Vaciar carrito</button>
+  </div>
+</aside>
+
+<script>
+/* ============ CONFIGURACIÓN (editar acá) ============ */
+const CONFIG = {
+  whatsapp: "59895605552", // Número con código de país, sin + ni espacios
+  direccion: "Calle Sevilla, Ciudad del Plata, San José, Uruguay",
+  horarios: "Lunes a sábado: 07:45–14:00 y 14:30–20:00\nDomingo: 09:00–13:20",
+  telefono: "2347 1550",
+  instagram: "https://instagram.com/supermercado.pamela",
+  facebook: "https://facebook.com/superpamela.ciudaddelplata",
+  mapsEmbed: "https://maps.google.com/maps?q=Calle+Sevilla,+Ciudad+del+Plata,+San+Jos%C3%A9,+Uruguay&output=embed" // Reemplazar por el mapa exacto del local
+};
+const CATS = [["Carnicería","🥩"],["Fiambrería","🧀"],["Frutas y verduras","🍎"],["Almacén","🍚"],["Lácteos","🥛"],["Panadería","🍞"],["Bebidas","🥤"],["Congelados","🧊"],["Limpieza","🧽"],["Higiene personal","🧴"]];
+/* Producto: [categoría, nombre, precio $UYU, unidad, descripción, emoji, foto opcional (ruta/URL)] */
+const P = [
+["Carnicería","Asado de tira",520,"kg","Corte clásico para la parrilla.","🥩"],
+["Carnicería","Carne picada",330,"kg","Picada especial, ideal para hamburguesas.","🍖"],
+["Carnicería","Pechuga de pollo",290,"kg","Fresca, sin piel.","🍗"],
+["Fiambrería","Jamón cocido",450,"kg","Feteado al momento.","🥓"],
+["Fiambrería","Queso muzzarella",420,"kg","Para pizzas y tostados.","🧀"],
+["Fiambrería","Salame tipo Milán",610,"kg","Sabor tradicional.","🌭"],
+["Frutas y verduras","Manzana roja",120,"kg","Crocante y dulce.","🍎"],
+["Frutas y verduras","Banana",95,"kg","Madura y lista para comer.","🍌"],
+["Frutas y verduras","Tomate perita",110,"kg","Ideal para salsas.","🍅"],
+["Frutas y verduras","Papa blanca",65,"kg","Para puré, fritas o al horno.","🥔"],
+["Almacén","Arroz blanco 1 kg",75,"paquete","Grano largo fino.","🍚"],
+["Almacén","Fideos spaghetti 500 g",58,"paquete","Trigo candeal.","🍝"],
+["Almacén","Aceite de girasol 900 ml",120,"unidad","Para todos los días.","🫒"],
+["Almacén","Yerba mate 1 kg",210,"paquete","Sabor suave.","🧉"],
+["Lácteos","Leche entera 1 L",52,"litro","Larga vida.","🥛"],
+["Lácteos","Yogur de frutilla 1 L",98,"unidad","Cremoso y fresco.","🍓"],
+["Lácteos","Manteca 200 g",110,"unidad","Para untar y cocinar.","🧈"],
+["Panadería","Pan francés",160,"kg","Horneado del día.","🥖"],
+["Panadería","Medialunas",25,"unidad","Dulces o saladas.","🥐"],
+["Panadería","Bizcochos",180,"paquete","Para el mate.","🍪"],
+["Bebidas","Refresco cola 2,25 L",110,"unidad","Bien frío.","🥤"],
+["Bebidas","Agua mineral 2 L",45,"unidad","Sin gas.","💧"],
+["Bebidas","Jugo de naranja 1 L",85,"litro","Sabor natural.","🍊"],
+["Congelados","Hamburguesas x4",190,"paquete","Listas para la plancha.","🍔"],
+["Congelados","Papas fritas 1 kg",150,"paquete","Corte bastón.","🍟"],
+["Congelados","Helado 1 L",230,"unidad","Dulce de leche.","🍨"],
+["Limpieza","Detergente 750 ml",95,"unidad","Rinde más.","🧴"],
+["Limpieza","Lavandina 1 L",48,"litro","Desinfectante.","🧽"],
+["Higiene personal","Shampoo 400 ml",165,"unidad","Uso diario.","🧴"],
+["Higiene personal","Papel higiénico x4",120,"paquete","Doble hoja.","🧻"]
+].map((p,i)=>({id:"p"+i,cat:p[0],name:p[1],price:p[2],unit:p[3],desc:p[4],emoji:p[5],img:p[6]||""}));
+/* Ofertas: título, etiqueta, descripción, precio oferta, precio anterior, unidad, emoji */
+const O = [
+["Asado de la semana","-20%","Asado de tira con descuento todo el fin de semana.",416,520,"kg","🥩"],
+["Combo desayuno","Combo","Leche + pan francés (1 kg) + manteca.",235,270,"combo","🥐"],
+["Combo parrillero","Combo","Asado 1 kg + papas 2 kg + refresco 2,25 L.",720,790,"combo","🔥"],
+["Frutas en oferta","Semanal","Banana y manzana a precio especial.",89,120,"kg","🍌"]
+].map((o,i)=>({id:"o"+i,name:o[0],tag:o[1],desc:o[2],price:o[3],old:o[4],unit:o[5],emoji:o[6]}));
+
+/* ============ UTILIDADES ============ */
+const $=s=>document.querySelector(s), money=n=>"$"+Math.round(n).toLocaleString("es-UY");
+const isKg=u=>u==="kg";
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let cart=[];try{cart=JSON.parse(localStorage.getItem("pamela-cart")||"[]")}catch(e){}
+const save=()=>{try{localStorage.setItem("pamela-cart",JSON.stringify(cart))}catch(e){}};
+
+/* ============ CATÁLOGO ============ */
+let cat="",term="";
+function renderChips(){
+  $("#chips").innerHTML=[["","Todos"]].concat(CATS).map(c=>`<button class="chip" aria-pressed="${cat===c[0]}" data-c="${esc(c[0])}">${c[1]==="Todos"||!c[1]?"":""}${c[0]?c[1]+" ":""}${c[0]||"Todos"}</button>`).join("");
+}
+function renderGrid(){
+  const t=term.trim().toLowerCase();
+  let list=P.filter(p=>(!cat||p.cat===cat)&&(!t||(p.name+" "+p.desc+" "+p.cat).toLowerCase().includes(t)));
+  const s=$("#sort").value;
+  if(s==="asc")list.sort((a,b)=>a.price-b.price);else if(s==="desc")list.sort((a,b)=>b.price-a.price);else if(s==="az")list.sort((a,b)=>a.name.localeCompare(b.name,"es"));
+  $("#res").textContent=list.length+" producto"+(list.length===1?"":"s");
+  $("#grid").innerHTML=list.length?list.map(p=>`<article class="card"><div class="ph">${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy">`:`<span role="img" aria-label="${esc(p.name)}">${p.emoji}</span>`}<small>${esc(p.cat)}</small></div><div class="b"><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p><div class="row"><div class="price">${money(p.price)}<small> / ${p.unit}</small></div><button class="add" data-id="${p.id}" aria-label="Agregar ${esc(p.name)} al carrito">Agregar</button></div></div></article>`).join(""):`<p class="empty">No encontramos productos. Probá con otra palabra o categoría.</p>`;
+}
+function setCat(c){cat=c;renderChips();renderGrid()}
+$("#chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(b)setCat(b.dataset.c)});
+$("#q").addEventListener("input",e=>{term=e.target.value;renderGrid();if(term)location.hash="#catalogo"});
+$("#sort").addEventListener("change",renderGrid);
+document.querySelectorAll("nav a[data-cat]").forEach(a=>a.addEventListener("click",()=>setCat(a.dataset.cat)));
+$("#shortcuts").innerHTML=CATS.slice(0,6).map(c=>`<a href="#catalogo" data-c="${c[0]}"><b>${c[1]}</b>${c[0]}</a>`).join("");
+$("#shortcuts").addEventListener("click",e=>{const a=e.target.closest("a");if(a)setCat(a.dataset.c)});
+$("#ogrid").innerHTML=O.map(o=>`<article class="ocard"><span class="tag">${o.tag}</span><div class="em">${o.emoji}</div><h3>${esc(o.name)}</h3><p>${esc(o.desc)}</p><div class="price">${money(o.price)}<s>${money(o.old)}</s></div><button class="add" data-id="${o.id}">Agregar al carrito</button></article>`).join("");
+document.addEventListener("click",e=>{const b=e.target.closest(".add");if(b)add(b.dataset.id)});
+
+/* ============ CARRITO ============ */
+function find(id){return P.find(p=>p.id===id)||O.find(o=>o.id===id)}
+function add(id){
+  const p=find(id);if(!p)return;
+  const it=cart.find(i=>i.id===id);
+  if(it)it.qty+=isKg(p.unit)?.5:1;else cart.push({id,qty:isKg(p.unit)?.5:1});
+  save();renderCart();
+  const b=$("#openCart");b.classList.remove("bump");void b.offsetWidth;b.classList.add("bump");
+}
+function setQty(id,q){
+  const p=find(id),min=isKg(p.unit)?.25:1;
+  q=parseFloat(q);if(isNaN(q)||q<=0){return}
+  const it=cart.find(i=>i.id===id);it.qty=isKg(p.unit)?Math.max(min,Math.round(q*100)/100):Math.round(q);
+  save();renderCart();
+}
+function remove(id){cart=cart.filter(i=>i.id!==id);save();renderCart()}
+const total=()=>cart.reduce((s,i)=>s+find(i.id).price*i.qty,0);
+const qtyTxt=(p,q)=>isKg(p.unit)?q.toLocaleString("es-UY")+" kg":q+" "+(p.unit==="combo"?"combo"+(q>1?"s":""):"×");
+function renderCart(){
+  cart=cart.filter(i=>find(i.id));
+  $("#count").textContent=cart.reduce((s,i)=>s+(isKg(find(i.id).unit)?1:i.qty),0);
+  $("#total").textContent=money(total());
+  $("#send").disabled=!cart.length;
+  $("#items").innerHTML=cart.length?cart.map(i=>{const p=find(i.id),k=isKg(p.unit),st=k?.25:1;
+    return `<div class="it"><b>${p.emoji} ${esc(p.name)}</b><b>${money(p.price*i.qty)}</b><div class="sub">${money(p.price)} / ${p.unit}${k?" · indicá los kilos":""}</div><span></span><div class="qty"><button data-a="dec" data-id="${i.id}" aria-label="Disminuir">−</button><input type="number" min="${st}" step="${st}" value="${i.qty}" data-id="${i.id}" aria-label="Cantidad de ${esc(p.name)}${k?" en kg":""}"><button data-a="inc" data-id="${i.id}" aria-label="Aumentar">+</button></div><button class="del" data-a="del" data-id="${i.id}">Eliminar</button></div>`}).join(""):`<p class="empty">Tu carrito está vacío.<br>Agregá productos para armar tu pedido.</p>`;
+}
+$("#items").addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b)return;const id=b.dataset.id,p=find(id),it=cart.find(i=>i.id===id),st=isKg(p.unit)?.25:1;
+  if(b.dataset.a==="del")remove(id);
+  else if(b.dataset.a==="inc")setQty(id,it.qty+st);
+  else if(it.qty-st<=0)remove(id);else setQty(id,it.qty-st)});
+$("#items").addEventListener("change",e=>{if(e.target.matches("input")){const v=parseFloat(e.target.value);v>0?setQty(e.target.dataset.id,v):renderCart()}});
+$("#clear").addEventListener("click",()=>{if(cart.length&&confirm("¿Vaciar el carrito?")){cart=[];save();renderCart()}});
+function drawer(on){$("#drawer").classList.toggle("on",on);$("#ov").classList.toggle("on",on);$("#drawer").setAttribute("aria-hidden",!on);document.body.style.overflow=on?"hidden":"";if(on)$("#closeCart").focus();else $("#openCart").focus()}
+$("#openCart").addEventListener("click",()=>drawer(true));
+$("#closeCart").addEventListener("click",()=>drawer(false));
+$("#ov").addEventListener("click",()=>drawer(false));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")drawer(false)});
+
+/* ============ WHATSAPP ============ */
+$("#send").addEventListener("click",()=>{
+  if(!cart.length)return;
+  const lines=cart.map(i=>{const p=find(i.id);return `• ${p.name} — ${qtyTxt(p,i.qty)} — ref. ${money(p.price)}/${p.unit} = ${money(p.price*i.qty)}`});
+  const obs=$("#obs").value.trim();
+  const msg=`Hola Super Pamela! Quiero hacer este pedido:\n\n${lines.join("\n")}\n\nTotal estimado: ${money(total())}\n(Precios de referencia; el total final se confirma al preparar el pedido.)\n\nObservaciones: ${obs||"—"}`;
+  const num=(CONFIG.whatsapp||"").replace(/\D/g,"");
+  if(!num){alert("Falta configurar el número de WhatsApp del supermercado (CONFIG.whatsapp en index.html). Se abrirá WhatsApp para que elijas el contacto.")}
+  window.open((num?`https://wa.me/${num}`:"https://wa.me/")+"?text="+encodeURIComponent(msg),"_blank","noopener");
+});
+
+/* ============ INFORMACIÓN ============ */
+(function(){
+  const pend='<em style="color:#8a93a6">Pendiente de completar</em>';
+  const c=CONFIG,soc=[c.instagram&&`<a href="${esc(c.instagram)}" target="_blank" rel="noopener">Instagram</a>`,c.facebook&&`<a href="${esc(c.facebook)}" target="_blank" rel="noopener">Facebook</a>`].filter(Boolean).join(" · ");
+  const wa=c.whatsapp?`<a href="https://wa.me/${c.whatsapp.replace(/\D/g,"")}" target="_blank" rel="noopener">Escribinos por WhatsApp</a>`:pend;
+  $("#infoBox").innerHTML=`<div><h3>Super Pamela</h3><p>Supermercado de Ciudad del Plata.</p></div><div><h3>📍 Dirección</h3><p>${c.direccion?esc(c.direccion):pend}</p></div><div><h3>🕒 Horarios</h3><p>${c.horarios?esc(c.horarios).replace(/\n/g,"<br>"):pend}</p></div><div><h3>📞 Teléfono</h3><p>${c.telefono?`<a href="tel:${c.telefono.replace(/\D/g,"")}">${esc(c.telefono)}</a>`:pend}</p></div><div><h3>💬 WhatsApp</h3><p>${wa}</p></div><div><h3>📱 Redes sociales</h3><p>${soc||pend}</p></div><div class="map">${c.mapsEmbed?`<iframe src="${esc(c.mapsEmbed)}" loading="lazy" title="Ubicación de Super Pamela en Google Maps" referrerpolicy="no-referrer-when-downgrade"></iframe>`:`<h3>🗺️ Ubicación en Google Maps</h3><p>${pend}</p>`}</div>`;
+  $("#yr").textContent=new Date().getFullYear();
+})();
+
+renderChips();renderGrid();renderCart();
+</script>
+</body>
+</html>

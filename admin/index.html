@@ -176,3 +176,4 @@ function bind(){
     try{const o=await collect(f,CF,D.conf);await q(sb.from("settings").upsert({id:1,data:o}));await load();render();toast("Configuración guardada ✔")}catch(er){toast("Error: "+er.message,1)}b.disabled=false}}
 </script>
 </body>
+</html>

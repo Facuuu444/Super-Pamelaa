@@ -86,7 +86,7 @@ dialog{border:0;border-radius:16px;padding:0;width:min(520px,94vw);max-height:92
 
 <script src="../config.js"></script>
 <script>
-window.SB_URL=String(window.SB_URL||"").replace(/[\s"']/g,"").replace(/\/+$/,"").replace(/\/(rest|auth)\/v1$/,"");window.SB_KEY=String(window.SB_KEY||"").replace(/[\s"']/g,"");
+window.SB_URL=(String(window.SB_URL||"").match(/https?:\/\/[A-Za-z0-9.-]+/)||[String(window.SB_URL||"").replace(/[\s"']/g,"")])[0].replace(/\/+$/,"");window.__x=String(window.SB_URL||"").replace(/[\s"']/g,"").replace(/\/+$/,"").replace(/\/(rest|auth)\/v1$/,"");window.SB_KEY=String(window.SB_KEY||"").replace(/[\s"']/g,"");
 const $=s=>document.querySelector(s),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const money=n=>"$"+Math.round(n||0).toLocaleString("es-UY");
 const DEFCATS="🥩 Carnicería\n🧀 Fiambrería\n🍎 Frutas y verduras\n🍚 Almacén\n🥛 Lácteos\n🍞 Panadería\n🥤 Bebidas\n🧊 Congelados\n🧽 Limpieza\n🧴 Higiene personal";

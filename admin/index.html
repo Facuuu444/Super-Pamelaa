@@ -86,6 +86,7 @@ dialog{border:0;border-radius:16px;padding:0;width:min(520px,94vw);max-height:92
 
 <script src="../config.js"></script>
 <script>
+window.SB_URL=String(window.SB_URL||"").replace(/[\s"']/g,"").replace(/\/+$/,"").replace(/\/(rest|auth)\/v1$/,"");window.SB_KEY=String(window.SB_KEY||"").replace(/[\s"']/g,"");
 const $=s=>document.querySelector(s),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const money=n=>"$"+Math.round(n||0).toLocaleString("es-UY");
 const DEFCATS="🥩 Carnicería\n🧀 Fiambrería\n🍎 Frutas y verduras\n🍚 Almacén\n🥛 Lácteos\n🍞 Panadería\n🥤 Bebidas\n🧊 Congelados\n🧽 Limpieza\n🧴 Higiene personal";
@@ -113,10 +114,10 @@ class QB{constructor(t){this.t=t;this.m="GET";this.p=new URLSearchParams();this.
     const r=await fetch(SB_URL+"/rest/v1/"+this.t+"?"+this.p,{method:this.m,headers:h,body:this.body?JSON.stringify(this.body):undefined});
     const tx=await r.text();let j=null;try{j=tx?JSON.parse(tx):null}catch(e){}
     if(!r.ok)return{data:null,error:{message:(j&&(j.message||j.msg))||("Error "+r.status)}};
-    return{data:this.m==="GET"?j:null,error:null}}catch(e){return{data:null,error:{message:"Sin conexión con Supabase: "+e.message}}}}}
+    return{data:this.m==="GET"?j:null,error:null}}catch(e){return{data:null,error:{message:"No se pudo conectar con «"+SB_URL+"». Esa dirección no responde: revisá que sea idéntica a la de Supabase."}}}}}
 const sb={
   auth:{
-    async signInWithPassword({email,password}){try{const r=await fetch(SB_URL+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:SB_KEY,"Content-Type":"application/json"},body:JSON.stringify({email,password})});const j=await r.json();if(!r.ok)return{error:{message:j.error_description||j.msg||j.message||"Error "+r.status}};setSess(j);return{error:null}}catch(e){return{error:{message:"Sin conexión con Supabase: "+e.message}}}},
+    async signInWithPassword({email,password}){try{const r=await fetch(SB_URL+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:SB_KEY,"Content-Type":"application/json"},body:JSON.stringify({email,password})});const j=await r.json();if(!r.ok)return{error:{message:j.error_description||j.msg||j.message||"Error "+r.status}};setSess(j);return{error:null}}catch(e){return{error:{message:"No se pudo conectar con «"+SB_URL+"». Esa dirección no responde: revisá que sea idéntica a la de Supabase."}}}},
     async getSession(){await refresh();return{data:{session:SESSION}}},
     async signOut(){setSess(null)}},
   from:t=>new QB(t),

@@ -85,7 +85,6 @@ dialog{border:0;border-radius:16px;padding:0;width:min(520px,94vw);max-height:92
 <div id="toast" role="status"></div>
 
 <script src="../config.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script>
 const $=s=>document.querySelector(s),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const money=n=>"$"+Math.round(n||0).toLocaleString("es-UY");
@@ -94,22 +93,50 @@ const STATES=["pendiente","confirmado","en preparación","entregado","cancelado"
 let toastT;function toast(m,bad){const t=$("#toast");t.textContent=m;t.className="on"+(bad?" bad":"");clearTimeout(toastT);toastT=setTimeout(()=>t.className="",3200)}
 if(!window.SB_URL||!window.SB_KEY){$("#lerr").textContent="Falta completar SB_URL y SB_KEY en config.js.";$("#lb").disabled=true}
 $("#lf").addEventListener("submit",e=>e.preventDefault());
-let sb=null;
-try{if(window.SB_URL&&window.SB_KEY){if(typeof supabase==="undefined")throw new Error("lib");sb=supabase.createClient(SB_URL,SB_KEY)}}
-catch(e){$("#lerr").textContent="No se pudo cargar la conexión con Supabase (la librería está bloqueada). Probá con otro navegador, desactivá el bloqueador de anuncios o revisá tu conexión.";$("#lb").disabled=true}
+/* Conexión directa con Supabase (sin librerías externas) */
+let SESSION=null;try{SESSION=JSON.parse(localStorage.getItem("sp-session")||"null")}catch(e){}
+function setSess(j){SESSION=j&&j.access_token?{access_token:j.access_token,refresh_token:j.refresh_token,expires_at:j.expires_at||Math.floor(Date.now()/1000)+(j.expires_in||3600)}:null;try{SESSION?localStorage.setItem("sp-session",JSON.stringify(SESSION)):localStorage.removeItem("sp-session")}catch(e){}}
+const hdr=(x={})=>({apikey:SB_KEY,Authorization:"Bearer "+(SESSION?SESSION.access_token:SB_KEY),...x});
+async function refresh(){if(!SESSION||SESSION.expires_at*1000-Date.now()>60000)return;
+  try{const r=await fetch(SB_URL+"/auth/v1/token?grant_type=refresh_token",{method:"POST",headers:{apikey:SB_KEY,"Content-Type":"application/json"},body:JSON.stringify({refresh_token:SESSION.refresh_token})});setSess(r.ok?await r.json():null)}catch(e){}}
+class QB{constructor(t){this.t=t;this.m="GET";this.p=new URLSearchParams();this.body=null;this.pf=[]}
+  select(c){this.p.set("select",c||"*");return this}
+  order(c,o={}){this.p.set("order",c+(o.ascending===false?".desc":".asc"));return this}
+  eq(c,v){this.p.append(c,"eq."+v);return this}
+  limit(n){this.p.set("limit",n);return this}
+  insert(b){this.m="POST";this.body=b;return this}
+  update(b){this.m="PATCH";this.body=b;return this}
+  delete(){this.m="DELETE";return this}
+  upsert(b){this.m="POST";this.body=b;this.pf.push("resolution=merge-duplicates");return this}
+  then(ok,no){return this.run().then(ok,no)}
+  async run(){try{await refresh();const h=hdr({"Content-Type":"application/json"});if(this.pf.length)h.Prefer=this.pf.join(",");
+    const r=await fetch(SB_URL+"/rest/v1/"+this.t+"?"+this.p,{method:this.m,headers:h,body:this.body?JSON.stringify(this.body):undefined});
+    const tx=await r.text();let j=null;try{j=tx?JSON.parse(tx):null}catch(e){}
+    if(!r.ok)return{data:null,error:{message:(j&&(j.message||j.msg))||("Error "+r.status)}};
+    return{data:this.m==="GET"?j:null,error:null}}catch(e){return{data:null,error:{message:"Sin conexión con Supabase: "+e.message}}}}}
+const sb={
+  auth:{
+    async signInWithPassword({email,password}){try{const r=await fetch(SB_URL+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:SB_KEY,"Content-Type":"application/json"},body:JSON.stringify({email,password})});const j=await r.json();if(!r.ok)return{error:{message:j.error_description||j.msg||j.message||"Error "+r.status}};setSess(j);return{error:null}}catch(e){return{error:{message:"Sin conexión con Supabase: "+e.message}}}},
+    async getSession(){await refresh();return{data:{session:SESSION}}},
+    async signOut(){setSess(null)}},
+  from:t=>new QB(t),
+  storage:{from:b=>({
+    async upload(path,file,o){await refresh();try{const r=await fetch(SB_URL+"/storage/v1/object/"+b+"/"+path,{method:"POST",headers:hdr({"Content-Type":(o&&o.contentType)||file.type}),body:file});if(!r.ok){let m="Error "+r.status;try{m=(await r.json()).message||m}catch(e){}return{error:{message:m}}}return{error:null}}catch(e){return{error:{message:e.message}}}},
+    getPublicUrl:path=>({data:{publicUrl:SB_URL+"/storage/v1/object/public/"+b+"/"+path}})})}};
+if(window.SB_URL&&window.SB_KEY)sb.auth.getSession().then(({data})=>{if(data.session)enter()});
 let D={products:[],offers:[],orders:[],conf:{}},V="dash";
 async function q(p){const r=await p;if(r.error)throw new Error(r.error.message);return r.data}
 
 /* ---- acceso ---- */
-$("#lf").onsubmit=async e=>{e.preventDefault();if(!sb)return;$("#lb").disabled=true;$("#lerr").textContent="Ingresando…";
+$("#lf").onsubmit=async e=>{e.preventDefault();if(!window.SB_URL||!window.SB_KEY)return;$("#lb").disabled=true;$("#lerr").textContent="Ingresando…";
   const {error}=await sb.auth.signInWithPassword({email:$("#em").value.trim(),password:$("#pw").value});
-  try{if(error)$("#lerr").textContent=/confirm/i.test(error.message)?"Falta confirmar el correo (revisá tu casilla o confirmalo en Supabase > Authentication > Users).":"Correo o contraseña incorrectos.";else{$("#lerr").textContent="";await enter()}}catch(er){$("#lerr").textContent="Error: "+er.message}$("#lb").disabled=false};
+  try{if(error)$("#lerr").textContent=/confirm/i.test(error.message)?"Falta confirmar el correo (confirmalo en Supabase > Authentication > Users).":/invalid login/i.test(error.message)?"Correo o contraseña incorrectos.":"Error: "+error.message;else{$("#lerr").textContent="";await enter()}}catch(er){$("#lerr").textContent="Error: "+er.message}$("#lb").disabled=false};
 async function enter(){
   const {data}=await sb.from("admins").select("email").limit(1);
   if(!data||!data.length){await sb.auth.signOut();$("#lerr").textContent="Esta cuenta no tiene permisos de administrador.";return}
   $("#login").style.display="none";$("#app").style.display="grid";await load();render()}
 $("#out").onclick=async()=>{await sb.auth.signOut();location.reload()};
-if(sb)sb.auth.getSession().then(({data})=>{if(data.session)enter()});
+
 async function load(){try{
   const [p,o,r,s]=await Promise.all([q(sb.from("products").select("*").order("name")),q(sb.from("offers").select("*").order("created_at",{ascending:false})),q(sb.from("orders").select("*").order("created_at",{ascending:false})),q(sb.from("settings").select("data").eq("id",1))]);
   D={products:p,offers:o,orders:r,conf:(s[0]&&s[0].data)||{}}}catch(e){toast("No se pudieron cargar los datos: "+e.message,1)}}
